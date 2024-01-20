@@ -21,6 +21,7 @@ class stack:
                 return True
           else:
                 print('No')
+                
         
     def display(self):
           print(self.stack) 

@@ -36,6 +36,9 @@ class  set_of_stack:
         if len(self.set_of_stack[-1])==0:
             self.set_of_stack.pop(-1)
         self.set_of_stack[-1].pop(-1)   
+    def popAt(self,n):
+        self.set_of_stack[n].pop(-1)
+
 
       
 
@@ -49,13 +52,14 @@ s.push(6)
 s.push(7)
 s.push(6)
 s.push(7)
-s.pop()
-s.pop()
-s.pop()
-s.pop()
-s.pop()
-s.pop()
-s.pop()
+# s.pop()
+# s.pop()
+# s.pop()
+# s.pop()
+# s.pop()
+# s.pop()
+# s.pop()
+s.popAt(2)
 
 s.display()     
 
