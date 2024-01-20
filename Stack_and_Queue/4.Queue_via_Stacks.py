@@ -31,3 +31,5 @@ print(x.pop())
 print(x.pop())
 x.push(9)
 print(x.stack1)
+
+
