@@ -1,42 +1,41 @@
-nums=[1,2,3,5,1]
+
+# nums = [1,2,3,4,5,6]
+# k = 1
+nums = [-1,3,2,4,5]
+k = 3
+
+nums=[1,2,4]
+k=2
+nums = [-1,-2,-3,-4]
+k = 2
+
+# nums=[1,5]
+# k=2
+
+# def addall(arr):
+#       x=0
+#       for i in arr:
+#             x=x+i
+#       return x      
+      
+  
+  
+# sub=[] 
+# for i in range(len(nums)):
+#         for j in range(i+1,len(nums)):
+#                 if abs(nums[i]-nums[j])==k:
+#                    sub.append(addall(nums[i:j+1]))
 
 
-def minimumArrayLength( nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        
-        """
-       
-        if len(nums)==1:
-            return 1
-        def all_element_is_zero(nums):
-            for x in nums:
-                if x!=0:
-                    return False
-            return True  
-        
-        
-        while not all_element_is_zero(nums) and len(nums)!=1:
+
+
+
+         
+
+                
             
-                #find  i
-                i=0
-                while nums[i]==0:
-                        i=i+1
-                        
-                if nums[i+1]:        
-                    j=i+1
-                    #find  j
-                    while nums[j]==0:
-                            j=j+1
-                print(nums[i],nums[j])
-                m=nums[j]%nums[i]
+            
 
-                nums.pop(i)
-                nums.pop(j-1)
-                nums.append(m)
-        
-        return len(nums)
+                
 
 
-print(minimumArrayLength( nums))

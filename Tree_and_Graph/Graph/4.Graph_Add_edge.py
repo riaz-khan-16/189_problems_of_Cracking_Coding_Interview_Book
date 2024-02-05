@@ -34,11 +34,12 @@ def display_grap():
     for i in range(len(graph)):
         for j in range(len(graph)):
             print(graph[i][j], end=' ')
-        print()
+        print(' ')
 
 nodes=[]
 graph=[]
 number_of_node=0
+
 
 add_node('A')
 add_node('B')
