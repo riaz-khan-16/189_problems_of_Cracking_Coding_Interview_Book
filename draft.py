@@ -1,41 +1,20 @@
 
-# nums = [1,2,3,4,5,6]
-# k = 1
-nums = [-1,3,2,4,5]
-k = 3
+s="tree"
+all=set()
+for i in s:
+  all.add(i)
+ 
+d=[]
+for k in all:
+  d.append([k,s.count(k)])
 
-nums=[1,2,4]
-k=2
-nums = [-1,-2,-3,-4]
-k = 2
 
-# nums=[1,5]
-# k=2
+def myf(x):
+  return x[1]
+d.sort(key=myf,reverse=True)
 
-# def addall(arr):
-#       x=0
-#       for i in arr:
-#             x=x+i
-#       return x      
-      
+
+for i in range(len(d)):
+  d[i]=d[i][0]*d[i][1]
   
-  
-# sub=[] 
-# for i in range(len(nums)):
-#         for j in range(i+1,len(nums)):
-#                 if abs(nums[i]-nums[j])==k:
-#                    sub.append(addall(nums[i:j+1]))
-
-
-
-
-
-         
-
-                
-            
-            
-
-                
-
-
+print(''.join(d))  
