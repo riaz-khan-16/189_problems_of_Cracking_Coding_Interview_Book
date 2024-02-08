@@ -1,35 +1,4 @@
-# #1st way to build a binary tree
 
-# class TreeNode:
-#     def __init__(self, value):
-#         self.value = value
-#         self.left = None
-#         self.right = None
-
-# def print_tree(node):
-#     if node is not None:
-#         print_tree(node.left)
-#         print(node.value)
-#         print_tree(node.right)        
-
-# # Example binary tree:
-# #       1
-# #      / \
-# #     2   3
-# #    / \
-# #   4   5
-
-# root = TreeNode(1)
-# root.left = TreeNode(2)
-# root.right = TreeNode(3)
-# root.left.left = TreeNode(4)
-# root.left.right = TreeNode(5)
-
-# print_tree(root)
-
-# how to make a binary tree
-
-# at first create a tmeplate
 
 class Node:
     def __init__(self,value):
@@ -74,7 +43,7 @@ def display(root):
 
 
 display(tree)
-                
+
                          
 
                  
