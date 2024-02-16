@@ -30,4 +30,6 @@ def checkBST(root):
 
        return True
 
+
+
 print(checkBST(root))

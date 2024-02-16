@@ -1,20 +1,17 @@
 
-s="tree"
-all=set()
-for i in s:
-  all.add(i)
- 
-d=[]
-for k in all:
-  d.append([k,s.count(k)])
+arr=[5,5,1,2,2]
+k=3
+s=set(arr)
+m={}
+for i in arr:
+    m[i]=arr.count(i)
+sorted_n=sorted(m.values()) 
+u=len(s)
+for x in sorted_n:
+   if k>=x:
+       k=k-x
+       u=u-1
+   else:
+       break
+print(u)         
 
-
-def myf(x):
-  return x[1]
-d.sort(key=myf,reverse=True)
-
-
-for i in range(len(d)):
-  d[i]=d[i][0]*d[i][1]
-  
-print(''.join(d))  
