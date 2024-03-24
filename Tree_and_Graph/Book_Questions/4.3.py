@@ -21,8 +21,7 @@ class Node:
     #    /  \     /  \
     #  B1    B2   C1  C2
            
-
-           
+       
 tree=Node('A')
 tree.insert_left('B')
 tree.insert_right('C')
