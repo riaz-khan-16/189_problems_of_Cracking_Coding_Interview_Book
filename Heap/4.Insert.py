@@ -1,3 +1,6 @@
+
+
+
 def insert(heap,value):
         heap.append(value)
         i = len(heap) - 1
