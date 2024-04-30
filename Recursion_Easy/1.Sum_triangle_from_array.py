@@ -7,9 +7,10 @@ arr=[1,2,3,4,5]
 def SumTriangle(arr):
         if len(arr)==1:
             return
-        new=[]
+        
         for i in range(len(arr)-1):
-              new.append(arr[i]+arr[i+1])
-        print(new)
-        SumTriangle(new)
+              arr[i]=arr[i]+arr[i+1]
+        arr.pop      
+        print(arr)
+        SumTriangle(arr)
 SumTriangle(arr)
