@@ -11,7 +11,7 @@ def findAllSubsets(p,up):
 findAllSubsets('','abc')  
 print(sub)
 
-a=
+
 
 
 
