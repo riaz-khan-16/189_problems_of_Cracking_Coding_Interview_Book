@@ -8,7 +8,6 @@ memo={}
 def rec(ans,i):
     if i in memo:
         return memo[i]
-    
     if i>=len(s):
         return 1
     if s[i]=='0':
@@ -21,8 +20,6 @@ def rec(ans,i):
     memo[i]=x   
     return x  
 print(rec([],0))
-
-
 
 
 
