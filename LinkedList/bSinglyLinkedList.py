@@ -16,7 +16,6 @@ class Linkedlist:
                self.head=newNode
 
           else:
-               
                #find last node
                lastNode=self.head
                while True:

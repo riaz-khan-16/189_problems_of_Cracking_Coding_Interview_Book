@@ -1,8 +1,4 @@
 #adjacency matrix
-
-
-
-
 def add_node(v):
 
     global number_of_node   #We only need to use the global keyword in a function if we want to do assignments or change the global variable. global is not needed for printing and accessing. 
@@ -34,3 +30,4 @@ add_node('B')
 add_node('C')
 
 display_grap()
+print(graph)

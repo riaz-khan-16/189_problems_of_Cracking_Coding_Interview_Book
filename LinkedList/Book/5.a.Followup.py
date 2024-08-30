@@ -1,4 +1,5 @@
 
+# Questio:  Suppose the digits are stored in forward order. Repeat the above problem. 
 
 class Node:
     def __init__(self,data=None, next=None):

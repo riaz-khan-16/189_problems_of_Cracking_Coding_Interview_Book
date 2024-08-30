@@ -1,5 +1,5 @@
 
-from LinkedList.Singly_Linked_list import Node,Linkedlist
+from LinkedList.bSinglyLinkedList import Node, Linkedlist
 
 
 
