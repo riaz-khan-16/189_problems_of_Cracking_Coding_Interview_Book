@@ -14,7 +14,6 @@ count=0
 visited=set()
 
 def bfs(row,col):
-    area=1
     
     queue=[(row,col)]
     visited.add((row,col))

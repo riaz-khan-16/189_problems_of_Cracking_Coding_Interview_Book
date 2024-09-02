@@ -3,46 +3,28 @@
 arr=[2,7,9,3,1]
 
 arr = [1,2,3,1]
-arr =[2,1,1,2]
-#recursive solution
+nums=arr =[2,1,1,2]
 
-def f(i):
 
-    if i>=len(arr):
+#memo
+memo={}
+def dp(i):
+    if i>=len(nums):
         return 0
-    #take current house
-    left=arr[i]+f(i+2)
-    right=f(i+1)
+    if i in memo:
+        return memo[i]
+    include=nums[i]+dp(i+2)
+    exclude=dp(i+1)
+    memo[i]=max(include,exclude)
+    return max(include,exclude)
+print(dp(0))
 
-    return max(left,right)
+#tabular
 
-
-#Memoization 
-
-mem=[-1]*len(arr)
-
-def dp(i,mem):
-
-    if i>=len(arr):
-        return 0
-    if mem[i]!=-1:
-        return mem[i]
-    if mem[i]==-1:
-        mem[i]=max(arr[i]+dp(i+2,mem),dp(i+1,mem))
-        return mem[i]
-    
-
-
-
-# Tabular method
-memo=[0]*len(arr)
-def dpt(memo):
-    memo[0]=arr[0]
-    memo[1]=max(arr[0],arr[1])
-    for i in range(1,len(arr)):
-        memo[i]=max(arr[i]+memo[i-2],memo[i-1])
-        
-dpt(memo)
-print(memo[len(arr)-1])
-
-#
+def dp(nums):
+    a=0, b=0
+    for i in nums:
+        temp=max(a+i,b)
+        a=b
+        b=temp
+    return b
