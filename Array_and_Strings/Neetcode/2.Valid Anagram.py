@@ -14,4 +14,9 @@ def solution(s,t):
             return False
         if hashs[k]!=hasht[k]:
             return False
+    if len(y)!=len(x):
+            return False
     return True
+s='a'
+t='ab'
+print(solution(s,t))
