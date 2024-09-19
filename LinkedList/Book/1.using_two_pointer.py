@@ -1,30 +1,39 @@
-from Creating_Singly_Linked_list import Node, Linkedlist
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
 
+def remove_duplicates_sorted(head):
+    current = head
 
-L=Linkedlist()   #initializing Linked List
-L.head=Node(1)  #giving the head value using Node()
-L.head.next=Node(5)
-L.head.next.next=Node(6)
-L.head.next.next.next=Node(9)
-L.head.next.next.next.next=Node(5)
-L.head.next.next.next.next.next=Node(0)
-L.head.next.next.next.next.next.next=Node(3)
-
-L.printNode()
-                                              
-
-current=L.head                                    
-
-while current is not None:                       
-    runner=current                                  
-    while runner.next is not None:             
-        if runner.next.data==current.data:     
-            runner.next=runner.next.next       
-
+    # Traverse the list till the end
+    while current and current.next:
+        if current.data == current.next.data:
+            # Skip the duplicate node
+            current.next = current.next.next
         else:
-            runner=runner.next                
-    current=current.next                       
+            # Move to the next node if no duplicate
+            current = current.next
 
+    return head
 
+def print_list(node):
+    while node:
+        print(node.data, end=" ")
+        node = node.next
+    print()
 
-L.printNode()
+# Example usage
+head = Node(1)
+head.next = Node(1)
+head.next.next = Node(2)
+head.next.next.next = Node(3)
+head.next.next.next.next = Node(3)
+
+print("Original List:")
+print_list(head)
+
+head = remove_duplicates_sorted(head)
+
+print("List after removing duplicates:")
+print_list(head)

@@ -46,3 +46,71 @@ def is_equal(list1,list2):
 
 print(is_equal(reverse, Linkedlist))
 
+
+#method 2
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+# Function to reverse a linked list
+def reverse(head):
+    prev = None
+    current = head
+    while current:
+        next_node = current.next
+        current.next = prev
+        prev = current
+        current = next_node
+    return prev
+
+# Function to check if linked list is palindrome
+def is_palindrome(head):
+    if not head or not head.next:
+        return True
+
+    # Step 1: Find the middle of the linked list
+    slow = head
+    fast = head
+    while fast and fast.next:
+        slow = slow.next
+        fast = fast.next.next
+
+    # Step 2: Reverse the second half of the list
+    second_half = reverse(slow)
+
+    # Step 3: Compare both halves
+    first_half = head
+    second_half_copy = second_half  # To restore the list later
+    while second_half:
+        if first_half.data != second_half.data:
+            return False
+        first_half = first_half.next
+        second_half = second_half.next
+
+    # Optional Step 4: Restore the original list by reversing the second half back
+    reverse(second_half_copy)
+
+    return True
+
+# Helper function to print the linked list
+def print_list(node):
+    while node:
+        print(node.data, end=" ")
+        node = node.next
+    print()
+
+# Example usage
+head = Node(1)
+head.next = Node(2)
+head.next.next = Node(3)
+head.next.next.next = Node(2)
+head.next.next.next.next = Node(1)
+
+print("Original Linked List:")
+print_list(head)
+
+if is_palindrome(head):
+    print("\nThe linked list is a palindrome.")
+else:
+    print("\nThe linked list is not a palindrome.")
