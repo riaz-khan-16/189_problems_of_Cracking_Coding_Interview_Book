@@ -1,92 +1,38 @@
-# Sum Lists: You have two numbers represented by a linked list, where each node contains a single
-# digit. The digits are stored in reverse order, such that the 1 's digit is at the head of the list. Write a
-# function that adds the two numbers and returns the sum as a linked list.
-# EXAMPLE
-# Input: (7-> 1 -> 6) + (5 -> 9 -> 2).That is,617 + 295.
-# Output: 2 -> 1 -> 9. That is, 912.
-# FOLLOW UP
-# Suppose the digits are stored in forward order. Repeat the above problem.
-# EXAMPLE
-# lnput:(6 -> 1 -> 7) + (2 -> 9 -> 5).That is,617 + 295.
-# Output: 9 -> 1 -> 2. That is, 912. 
+# Definition for singly-linked list.
+class ListNode(object):
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
-
-
-class Node:
-    def __init__(self,data=None, next=None):
-        self.data=data
-        self.next=next  
-
-
-def insertTail(head,newNode):
-    if head.data is None:
-        
-        head=newNode
-       
-    else:
+class Solution(object):
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        head=ListNode()
+        carry=0
         current=head
-        while current.next is not None:
+        while l1 and l2:
+            current.next=ListNode((l1.val+l2.val+carry)%10)
+            carry=(l1.val+l2.val+carry)//10
+            l1=l1.next
+            l2=l2.next
             current=current.next
-        current.next=newNode   
-    return head 
+        while l1:
+            current.next=ListNode((l1.val+carry)%10)
+            carry=(l1.val+carry)//10
+            l1=l1.next
+            current=current.next
+        while l2:
+            current.next=ListNode((l2.val+carry)%10)
+            carry=(l2.val+carry)//10
+            l2=l2.next
+            current=current.next
+        while carry:
+            current.next=ListNode(carry%10)
+            carry=carry//10
+            current=current.next
 
-A=Node(1,Node(2,Node(9)))   
-B=Node(2,Node(9,Node(6)))   
-
-result=Node()
-carry=0
-
-while True:
-    if A is not None and B is not None :
-        sum=(A.data+B.data+carry)
-        r=sum%10
-        result=insertTail(result,Node(r))
-        carry=sum//10
-        A=A.next
-        B=B.next
-    elif A is not None and B is None:
-        sum=(A.data+carry)
-        r=sum%10
-        result=insertTail(result,Node(r))
-        carry=sum//10
-        A=A.next
-
-    elif B is not None and A is None:
-        sum=(B.data+carry)
-        r=sum%10
-        result=insertTail(result,Node(r))
-        carry=sum//10
-        B=B.next  
-
-    elif carry:
-            sum=(carry)
-            r=sum%10
-            result=insertTail(result,Node(r))
-            break
-    else:
-        break          
-        
-
-
-print(result.data)
-print(result.next.data)
-print(result.next.next.data)
-print(result.next.next.next.data)
-       
-
-
-
-
-            
-
-
-
-
-
-
- 
-
- 
- 
-
-
+        return head.next

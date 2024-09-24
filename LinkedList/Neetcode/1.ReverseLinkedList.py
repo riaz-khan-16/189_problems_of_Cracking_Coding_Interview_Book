@@ -19,13 +19,3 @@ def reverseList(head):
         prev=current
         current=temp
     return prev
-
-def isEqual(list1, list2):
-    while list1 and list2:
-        if list1.val==list2.val:
-            list1=list1.next
-            list2=list2.next
-        else:
-            return False
-    return True
-print(isEqual(head, reverseList(head)))

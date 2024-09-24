@@ -1,12 +1,10 @@
-# https://leetcode.com/problems/reorder-list/
-
-head = [1,2,3,4]
+# https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/description/
 
 class Node:
     def __init__(self,data,next=None):
         self.data=data
         self.next=next
-head=Node(1,Node(2,Node(3,Node(4))))
+head=Node(5,Node(4,Node(2,Node(1))))
 
 # at first we need to find the middle using slow and fast pointer
 
@@ -28,22 +26,14 @@ while current:
     prev=current
     current=temp
    
-
-#Now merge the two list
-
 first,second=first,prev
+max_sum=0
 
-while second:
+while first and second:
     temp1,temp2=first.next,second.next
-    first.next=second
-    second.next=temp1
-    first,second=temp1,temp2
+    max_sum=max(first.data+ second.data, max_sum)
+    first,second=temp1, temp2
 
 
-   
-
-
-
-
-
+print(max_sum)
 
